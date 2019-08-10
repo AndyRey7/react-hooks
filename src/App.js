@@ -4,11 +4,13 @@ import AddUserForm from './forms/AddUserForm';
 import EditUserForm from './forms/EditUserForm';
 
 const App = () => {
+    // view users
     const userData = [
         {id: 1, name: 'Andy', username: 'Cyclops'},
         {id: 2, name: 'Luis', username: 'Wolverine'},
         {id: 3, name: 'Jeffrey', username: 'Iceman'}
     ]
+    // adding users
 
     const [users, setUsers] = useState(userData)
 
@@ -17,7 +19,7 @@ const App = () => {
         setUsers([...users, user])
     }
 
-
+    // editing users
 
     const [editing, setEditing] = useState(false)
     const initialFormState = {id: null, name: '', username: ''}
@@ -34,6 +36,8 @@ const App = () => {
 
         setUsers(users.map(user => user.id === id ? updatedUser : user))
     }
+
+    //delete users
 
     const deleteUser = id => {
         setEditing(false)
